@@ -28,7 +28,7 @@ def clean_scores(df: pd.DataFrame) -> pd.DataFrame:
     data = data.dropna(subset=SCORE_COLUMNS)
 
     valid = data[SCORE_COLUMNS].apply(
-        lambda column: column.between(0, 10)
+        lambda column: column.between(-5, 15)
     ).all(axis=1)
 
     return data.loc[valid].reset_index(drop=True)
